@@ -4,6 +4,14 @@
 #include <iostream>
 #include <limits>
 
+void pause()
+{
+    std::cin.clear(); // reset any error flags
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore any characters in the input buffer until we find a newline
+    std::cout << "\nPress enter to end ... ";
+    std::cin.get(); // get one more char from the user (waits for user to press enter)
+}
+
 int main()
 {
     std::cout << "Enter an integer value for n: ";
@@ -11,8 +19,6 @@ int main()
     std::cin >> x;
     std::cout << "\n";
 
-    int side = x * 2 - 1;
-    //std::cout << side;
 
     for (int i = 1; i <= x; i++)
     {
@@ -46,10 +52,8 @@ int main()
         std::cout << "\n";
     }
 
-    std::cin.clear(); // reset any error flags
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore any characters in the input buffer until we find a newline
-    std::cout << "\nPress enter to end ... ";
-    std::cin.get(); // get one more char from the user (waits for user to press enter)
+    pause();
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
